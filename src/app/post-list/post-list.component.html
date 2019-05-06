@@ -1,0 +1,26 @@
+
+
+<form>
+  <div class="form-group">
+  
+      <input type="text" class="form-control"  [(ngModel)]="title" name="title"  aria-describedby="emailHelp" placeholder="Enter title" >
+      
+    </div>
+   <div class="form-group">
+  <textarea class="form-control"  [(ngModel)]="description" name="description"  id="exampleFormControlTextarea1" rows="3"  placeholder="Enter your comment" ></textarea> 
+  </div>
+  <button class="btn btn-primary mt-3"  (click)="onClick()">Post</button>
+
+</form>
+
+<div class="card mt-4" >
+    <ul class="list-group list-group-flush " >
+      <li class="list-group-item mt-3 " *ngFor = "let post of posts">
+        <h2>{{post.title}}</h2>
+        <p>{{post.description}}</p>
+        <button class="btn btn-secondary mr-2 justify-content-center"(click)='updatePost(post._id)'>Edit</button>
+        <button class="btn btn-danger"  (click)="deletepost(post._id)">Delete</button>
+      </li>
+ 
+    </ul>
+  </div>
